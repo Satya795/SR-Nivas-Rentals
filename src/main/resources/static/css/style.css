@@ -1,0 +1,225 @@
+/* ============================================
+   SR Nivas — our own styles
+   Bootstrap gives the layout; this file adds
+   the SR Nivas colors, fonts and small touches.
+   ============================================ */
+
+/* 1. Colors kept in one place (CSS variables).
+      Change a color here and it changes everywhere. */
+:root {
+  --sand: #faf6f0;        /* page background */
+  --sand-dark: #efe6d9;   /* light boxes */
+  --beige: #ecdcc6;       /* icon circles */
+  --terra: #c0643f;       /* main terracotta color */
+  --terra-dark: #a5512f;  /* terracotta when hovered */
+  --sage: #8aa57f;        /* soft green */
+  --text: #3a2c23;        /* dark brown text */
+  --text-soft: #7a6656;   /* lighter text */
+  --deep: #33271f;        /* footer background */
+  --line: #e3d6c5;        /* borders */
+}
+
+/* 2. Page basics */
+body {
+  background: var(--sand);
+  color: var(--text);
+  font-family: "Manrope", system-ui, sans-serif;
+}
+
+h1, h2, h3, .brand, .stat {
+  font-family: "DM Serif Display", Georgia, serif;
+  font-weight: 400;
+}
+
+a { color: inherit; }
+
+/* 3. Small helper classes */
+.text-terra { color: var(--terra); text-decoration: none; }
+.text-terra:hover { text-decoration: underline; }
+.text-soft { color: var(--text-soft); }
+.bg-sand { background: var(--sand-dark); }
+.shadow-lift { box-shadow: 0 26px 50px -24px rgba(165, 81, 47, 0.55); }
+
+.eyebrow {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--terra);
+  margin-bottom: 0.5rem;
+}
+
+.label-small {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  margin-bottom: 0;
+}
+
+/* 4. Our terracotta button */
+.btn-terra {
+  background: var(--terra);
+  color: #fff;
+  border: none;
+  font-weight: 700;
+}
+.btn-terra:hover { background: var(--terra-dark); color: #fff; }
+
+/* 5. Top menu */
+.site-nav {
+  background: rgba(250, 246, 240, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.brand { font-size: 1.7rem; color: var(--text); }
+.brand span { color: var(--terra); }
+.brand-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: var(--terra);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+.site-nav .nav-link { font-weight: 600; color: var(--text-soft); }
+.site-nav .nav-link:hover,
+.site-nav .nav-link.active { color: var(--terra); }
+
+/* 6. Big welcome picture on the home page */
+.hero {
+  min-height: 86vh;
+  display: flex;
+  align-items: flex-end;
+  color: #fff;
+  /* dark see-through layer on top of the photo so the text is easy to read */
+  background:
+    linear-gradient(180deg, rgba(40, 28, 20, 0.15) 0%, rgba(40, 28, 20, 0.4) 45%, rgba(35, 24, 17, 0.85) 100%),
+    url("../images/hero-home.jpg") center / cover no-repeat;
+}
+.hero-content { padding-bottom: 5rem; }
+.hero .lead { opacity: 0.88; }
+
+/* Gentle "rise up" animation for the hero text */
+.hero-content > * { animation: rise 0.8s ease both; }
+.hero-content > *:nth-child(2) { animation-delay: 0.12s; }
+.hero-content > *:nth-child(3) { animation-delay: 0.24s; }
+.hero-content > *:nth-child(4) { animation-delay: 0.36s; }
+@keyframes rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 7. Home cards (made by JavaScript) */
+.home-card {
+  background: #fff;
+  border: none;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 18px 40px -22px rgba(90, 55, 35, 0.45);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-decoration: none;
+  color: var(--text);
+  height: 100%;
+}
+.home-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 26px 50px -24px rgba(165, 81, 47, 0.55);
+}
+.home-card img { height: 230px; object-fit: cover; }
+.home-card .price { color: var(--terra); font-weight: 700; font-size: 1.2rem; }
+
+.badge-type { background: var(--sand); color: var(--text); font-weight: 700; }
+.badge-free { background: var(--sage); color: #fff; }
+.badge-taken { background: var(--text-soft); color: #fff; }
+
+/* 8. Filter buttons on the Rentals page */
+.btn-filter {
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 50rem;
+  font-weight: 600;
+  padding: 0.45rem 1.2rem;
+}
+.btn-filter.active,
+.btn-filter:hover { background: var(--terra); color: #fff; border-color: var(--terra); }
+
+/* 9. "Why SR Nivas" boxes */
+.reason-box {
+  background: #fff;
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  height: 100%;
+  box-shadow: 0 18px 40px -22px rgba(90, 55, 35, 0.45);
+}
+.reason-box h3 { font-size: 1.5rem; margin-top: 1.2rem; }
+.reason-box p { color: var(--text-soft); font-size: 0.9rem; margin: 0; }
+
+.icon-circle {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--beige);
+  color: var(--terra);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+/* 10. Call to action box */
+.cta-box {
+  background: var(--terra);
+  color: #fff;
+  border-radius: 1.75rem;
+  padding: 3.5rem 2rem;
+}
+
+/* 11. Home details page */
+.detail-img { border-radius: 1.5rem; width: 100%; max-height: 480px; object-fit: cover; }
+.fact {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 18px 40px -22px rgba(90, 55, 35, 0.45);
+}
+.fact i { color: var(--terra); font-size: 1.3rem; }
+.fact p { margin: 0; }
+.amenity i { color: var(--sage); }
+.rent-box {
+  background: #fff;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  position: sticky;
+  top: 90px;
+  box-shadow: 0 26px 50px -24px rgba(165, 81, 47, 0.55);
+}
+.rent-box .big-price { font-family: "DM Serif Display", serif; font-size: 2.6rem; color: var(--terra); }
+
+/* 12. About page numbers */
+.stat { font-size: 2.4rem; color: var(--terra); margin-bottom: 0; }
+
+/* 13. Contact form */
+.form-box {
+  background: #fff;
+  border-radius: 1.75rem;
+  padding: 2.5rem;
+  box-shadow: 0 26px 50px -24px rgba(165, 81, 47, 0.55);
+}
+.form-control { background: var(--sand); border-color: var(--line); padding: 0.7rem 0.9rem; }
+.form-control:focus { border-color: var(--terra); box-shadow: 0 0 0 0.2rem rgba(192, 100, 63, 0.2); }
+.form-label { font-weight: 600; }
+.thank-icon { font-size: 3.5rem; color: var(--sage); }
+
+/* 14. Footer */
+.site-footer { background: var(--deep); color: #f3ede4; }
+.site-footer .brand { color: #fff; }
+.footer-title { font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.12em; opacity: 0.7; }
+.site-footer a { color: #f3ede4; text-decoration: none; opacity: 0.85; }
+.site-footer a:hover { opacity: 1; text-decoration: underline; }
+.site-footer hr { border-color: rgba(255, 255, 255, 0.2); }
